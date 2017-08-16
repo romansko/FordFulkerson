@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/main.css">   
+    <title>Ford Fulkerson interactive</title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div style="text-align:center; margin: 0 auto; width: 800px; font: 22pt Times New Roman;">Ford Fulkerson interactive </div>
+    <hr/>
+    <div style="text-align:right; margin-right: 80px;"; font: 14pt Times New Roman;"><i>By Roman Koifman </i></div>
+    <button onClick="randomGraph()">Random Graph</button>
+    <button onClick=mygraph.reset();>Clear all</button>
+    <button id="clearAlg" onClick=mygraph.clearAlg();>Clear algorithm</button>
+    &nbsp;&nbsp;&nbsp;
+    Maximum Capacity:
+    <input style="text-align:center"; size=5 value="100" id="maxCap">
+
+    <div class="tooltip" style="margin-left:250px;">
+        <div  style="font-size:18px; color:red;">
+        <b>&#x27A2; Instructions</b></div>
+        <span class="tooltiptext">
+            &bull; To <u>create</u> a <i><b>Vertex</b></i>, click anywhere whithin the left canvas.<br />
+            &bull; To <u>create</u> an <i><b>Edge</b></i>, click on a vertex and drag to another certex not releasing the mouse.<br />
+            &bull; Clicking on a Vertex will open vertex menu.<br />
+            &bull; <i><b>Source</b></i> color is teal, <i><b>Sink</b></i> color is grey.<br />
+            &bull; Clicking on an Edge will open edge menu.<br />
+            &bull; To <b>Zoom in/out</b> scroll with mouse wheel within the canvas.<br />
+            &bull; <b>Random Graph</b> button will generate a random graph.<br />
+            &bull; <b>Clear all</b> button will delete everything.<br />
+            &bull; <b>Clear algorithm</b> button will reset algorithm.<br />
+            &bull; <b>Maximum Capapcity</b> button box will set graph's edges maximum capacity.<br />
+            &bull; <b>Algorithm</b> select box will set <b>Edmonds-Karp</b> or <b>Capacity-Scaling</b> algorithm.<br />
+            &bull; <b>Play Algorithm</b> will animate the algorithm.<br />
+            &bull; The <b>Speed</b> selector will set the binking speed. (Will update for each augmenting path). <br />
+            &bull; <b>Save current graph</b> will save the current graph. <br />
+            &bull; <b>Restore saved graph</b> will restore the last saved graph.<br />
+        </span>
+    </div>
+    <br /><br />
+    Algorithm:
+    <select id="algorithm">
+        <option value="edmondsKarp" selected>Edmonds-Karp</option>
+        <option value="bottleneck">Capacity Scaling</option>
+    </select>
+    &nbsp;
+    <button id="playButton" onClick="play()">Play algorithm</button>
+    &nbsp;
+    Speed:
+    <button onClick="speedUp()">+</button>
+    <input style="text-align:center" size="1" value="5" id="speed" disabled>
+    <button onClick="slowDown()">-</button>
+    &nbsp;
+    <button id="saveB" onClick="save()">Save current graph</button>
+    &nbsp;
+    <button id="restoreB" onClick="restore()">Restore saved graph</button>
+    &nbsp;
+    <br /><br />
+    <div style="margin: 0 auto; width: 580px; border-color:teal; border-style:groove;" >
+        &nbsp;&nbsp;&nbsp;
+        Maximum Flow:
+        <input style="text-align:center" size=3 value="0" id="MaxFlowText" disabled>
+        &nbsp;&nbsp;&nbsp;
+        Augmented by:
+        <input style="text-align:center" size=3 value="0" id="aug" disabled>
+
+        &nbsp;&nbsp;&nbsp;
+        Augmenting Paths:
+        <input style="text-align:center" size=3 value="0" id="path" disabled>
+    </div><br />
+    <div style="float: left; margin-left:250px; color:darkblue; font-size:20px" >Flow Network:</div>
+    <div style="float: right; margin-right:300px; color:darkgreen; font-size:20px">Residual Network:</div>
+    <div id="contentContainer">
+        <canvas id="canvas" width="650" height="400" style="border-right: 1px solid black;"></canvas>
+        <canvas id="canvas2" width="650" height="400"></canvas>
+    </div>
+
+    <div id="vertexMenu">
+        <button class="button" id="vButton1" onClick=moveVertex();> Move </button> <br>
+        <button class="button" id="vButton2" onClick=removeVertex();> Delete </button> <br>
+        <button class="button" id="vButton3" onClick=chooseS();> Source </button> <br>
+        <button class="button" id="vButton4" onClick=chooseT();> Sink </button> <br>
+        <button class="button" id="vButton5" onClick=cancel();> Cancel </button> <br>
+    </div>
+    <div id="edgeMenu">
+        <button class="button" id="eButton1" onClick=flip();> flip </button> <br>
+        <button class="button" id="eButton2" onClick=setCapacity();> Set Capacity </button> <br>
+        <button class="button" id="eButton3" onClick=removeEdge();> Delete </button> <br>
+        <button class="button" id="eButton4" onClick=cancel();> Cancel </button> <br>
+     </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

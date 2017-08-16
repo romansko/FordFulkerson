@@ -1,0 +1,90 @@
+
+
+body {
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:90%;
+
+    text-transform:uppercase;
+    width:90%;
+}
+
+
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+        body {
+            background-color: #EAFFFF;
+            margin: 20px;
+            margin-top: 10px;
+        }
+        #contentContainer {
+            width: 1306px;
+            height: 400px;
+            border: 1px black solid;
+            overflow: hidden;
+            background-color: #F2F2F2;
+            cursor: pointer;
+            padding: 0px;
+        }
+        #vertexMenu {
+            border: 1px black solid;
+        }
+        #edgeMenu {
+            border: 1px black solid;
+        }
+        .button {
+            width: 100%;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 600px;
+            background-color: #FFF4D3;
+            color: black;
+            text-align: left;
+            border-radius: 6px;
+            border-color: darkblue;
+            border-style: ridge;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            margin-left: -90px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
